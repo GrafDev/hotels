@@ -6,7 +6,7 @@ import {useState} from "react";
 import TaskSecond from "./components/TaskSecond.tsx";
 import TaskThird from "./components/TaskThird.tsx";
 import TaskFourth from "./components/TaskFourth.tsx";
-import BrainTasks from "./features/BrainTasks.tsx";
+import BrainTasks from "./components/BrainTasks.tsx";
 import {BRAINTASK} from "./utils/text-constant.ts";
 
 
@@ -34,7 +34,7 @@ function App() {
         <BrainTasks task={BRAINTASK[0]} answer={BRAINTASK[1]} num={1}/>,
         <BrainTasks task={BRAINTASK[2]} answer={BRAINTASK[3]} num={2}/>,
         <BrainTasks task={BRAINTASK[4]} answer={BRAINTASK[5]} num={3}/>,
-        <BrainTasks task={BRAINTASK[6]} answer={BRAINTASK[7]} num={4}>
+        <BrainTasks task={BRAINTASK[6]} answer={BRAINTASK[7]} num={4}/>
     ]
 
     return (
