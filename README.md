@@ -6,7 +6,10 @@
 - [Задача 3: Материал](#задача-3)
 - [Задача 4: Пирожки](#задача-4)
   ### Задачи на коддинг
-- [алгоритымы находятся тут](https://github.com/GrafDev/hotels/tree/master/src/features)
+- [Задача 1](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskFirst.ts)
+- [Задача 2](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskSecond.ts)
+- [Задача 3](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskFirst.ts)
+- [Задача 4](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskFirst.ts)
 
 ## Задачи на сообразительнось
 ## Задача 1
