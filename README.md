@@ -6,7 +6,7 @@
 - [Задача 3: Материал](#задача-3)
 - [Задача 4: Пирожки](#задача-4)
   ### Задачи на коддинг
-- [алгоритымы находятся тут]([https://www.example.com](https://github.com/GrafDev/hotels/tree/master/src/features))
+- [алгоритымы находятся тут](https://github.com/GrafDev/hotels/tree/master/src/features)
 
 ## Задачи на сообразительнось
 ## Задача 1
