@@ -1,12 +1,12 @@
 # Тестовое задание для Hotels
 
 ## Оглавление
-### Задачи на сообразительнось
+#### Задачи на сообразительнось
 - [Задача 1: Монеты](#задача-1)
 - [Задача 2: Квадрат](#задача-2)
 - [Задача 3: Материал](#задача-3)
 - [Задача 4: Пирожки](#задача-4)
-### Задачи на коддинг
+#### Задачи на коддинг
 - [Задача 1](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskFirst.ts)
 - [Задача 2](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskSecond.ts)
 - [Задача 3](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskFirst.ts)
