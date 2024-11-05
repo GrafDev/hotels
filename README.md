@@ -10,7 +10,7 @@
 - [Задача 1](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskFirst.ts)
 - [Задача 2](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskSecond.ts)
 - [Задача 3](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskThird.ts)
-- [Задача 4](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskFirst.ts)
+- [Задача 4](https://github.com/GrafDev/hotels/blob/master/src/features/getTaskFourth.ts)
 
 
 
