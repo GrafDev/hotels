@@ -10,6 +10,7 @@ import {z} from "zod"
 import {Controller, useForm} from "react-hook-form";
 import {useState} from "react";
 import {getTaskFirst} from "../features/getTaskFirst.ts";
+import { PRIME_NUMBERS_TASK} from "../utils/text-constant.ts";
 
 // Изменяем схему на number
 const formSchema = z.object({
@@ -46,6 +47,9 @@ const TaskThird = () => {
             <Text fontWeight="medium">
                 Задача 3
             </Text>
+            <Text color="red.700">{PRIME_NUMBERS_TASK}</Text>
+            <Text color="green.600">Решение</Text>
+
             <form onSubmit={onSubmit}>
                 {!onOrder &&
                     <VStack>

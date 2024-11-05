@@ -8,6 +8,8 @@ import {z} from "zod"
 import {Controller, useForm} from "react-hook-form";
 import {useState} from "react";
 import {getTaskSecond} from "../features/getTaskSecond.ts";
+import {DIVISORS_TASK} from "../utils/text-constant.ts";
+import ShowCode from "./ShowCode.tsx";
 
 
 const formSchema = z.object({
@@ -58,6 +60,9 @@ const TaskSecond = () => {
             <Text fontWeight="medium">
                 Задача 2
             </Text>
+            <Text color="red.700">{DIVISORS_TASK}</Text>
+            <Text color="green.600">Решение</Text>
+
             <form onSubmit={onSubmit}>
                 {!onOrder &&
                     <VStack>
@@ -95,7 +100,9 @@ const TaskSecond = () => {
                         </Button>
                     </VStack>
                 }
+
             </form>
+            <ShowCode fun={getTaskSecond}/>
         </VStack>
     );
 };

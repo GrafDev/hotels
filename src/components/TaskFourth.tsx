@@ -10,6 +10,7 @@ import {z} from "zod"
 import {Controller, useForm} from "react-hook-form";
 import {useState} from "react";
 import {getTaskFirst} from "../features/getTaskFirst.ts";
+import {MULTIPLICATION_TABLE_TASK} from "../utils/text-constant.ts";
 
 // Изменяем схему на number
 const formSchema = z.object({
@@ -43,9 +44,10 @@ const TaskFourth = () => {
 
     return (
         <VStack>
-            <Text fontWeight="medium">
-                Задача 4
-            </Text>
+            <Text fontWeight="medium">Задача 4</Text>
+            <Text color="red.700">{MULTIPLICATION_TABLE_TASK}</Text>
+            <Text color="green.600">Решение</Text>
+
             <form onSubmit={onSubmit}>
                 {!onOrder &&
                     <VStack>

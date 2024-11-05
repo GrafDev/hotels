@@ -62,9 +62,7 @@ function App() {
                     </VStack>
 
                 </HStack>
-
-
-                <Box bg="bg" shadow="md" borderRadius="md" m={4} p={[4]}>
+                <Box bg="bg" shadow="md" borderRadius="md" m={4} p={[4]} maxW="60%">
                     {nodeList[taskNumber - 1]}
                 </Box>
 

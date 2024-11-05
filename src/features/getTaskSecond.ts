@@ -3,13 +3,13 @@ export const getTaskSecond = (num: string) => {
     const numbers = num.split(',').map(Number).sort((a, b) => b - a);
 
     if (numbers.length === 1) {
-        const divisors: number[] = [];
+        const _divisors: number[] = [];
         for (let i = 1; i <= Math.abs(numbers[0]); i++) {
             if (numbers[0] % i === 0) {
-                divisors.push(i);
+                _divisors.push(i);
             }
         }
-        return divisors;
+        return _divisors;
     }
 
     const divisors: number[] = [];
