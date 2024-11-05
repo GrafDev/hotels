@@ -68,6 +68,7 @@ const TaskFirst = () => {
                                     render={({field}) => (
                                         <NumberInputRoot
                                             disabled={field.disabled}
+                                            defaultValue={"0"}
                                             name={field.name}
                                             onValueChange={({value}) => {
                                                 field.onChange(Number(value))

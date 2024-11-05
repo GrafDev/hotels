@@ -65,6 +65,7 @@ const TaskThird = () => {
                                 <NumberInputRoot
                                     disabled={field.disabled}
                                     name={field.name}
+                                    defaultValue={"0"}
                                     min={0}
                                     onValueChange={({value}) => {
                                         field.onChange(Number(value))
@@ -103,6 +104,7 @@ const TaskThird = () => {
                             render={({field}) => (
                                 <NumberInputRoot
                                     disabled={field.disabled}
+                                    defaultValue={"0"}
                                     name={field.name}
                                     onValueChange={({value}) => {
                                         field.onChange(Number(value))

@@ -42,6 +42,7 @@ function App() {
                                     onClick={() => setTaskNumber(index + 1)}
                                     _hover={{ transform: 'scale(1.05)'}}
                                     border={index>3?"1px solid blue":"1px solid red"}
+                                    bg={index===taskNumber-1?"gray.400":""}
                                 >
                                     {`№${index>3?index-3:index+1}`}
                                 </Button>
