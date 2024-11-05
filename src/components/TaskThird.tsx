@@ -2,17 +2,16 @@ import {
     NumberInputField,
     NumberInputRoot,
 } from "./ui/number-input";
-import {VStack, Text} from "@chakra-ui/react";
+import {VStack, Text, HStack, Box} from "@chakra-ui/react";
 import {Field} from "./ui/field.tsx";
 import {zodResolver} from "@hookform/resolvers/zod"
-import {Button} from "@chakra-ui/react"
 import {z} from "zod"
 import {Controller, useForm} from "react-hook-form";
-import {useState} from "react";
-import {getTaskFirst} from "../features/getTaskFirst.ts";
-import { PRIME_NUMBERS_TASK} from "../utils/text-constant.ts";
+import {useEffect, useState} from "react";
+import {PRIME_NUMBERS_TASK} from "../utils/text-constant.ts";
+import {getTaskThird} from "../features/getTaskThird.ts";
+import ShowCode from "./ShowCode.tsx";
 
-// Изменяем схему на number
 const formSchema = z.object({
     number: z.number({
         required_error: "Number is required",
@@ -23,71 +22,102 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>
 
 const TaskThird = () => {
-    const [number, setNumber] = useState<number>(0)
-    const [onOrder, setOnOrder] = useState(false)
-    const {
-        control,
-        handleSubmit,
-        formState: {errors},
-    } = useForm<FormValues>({
+    const [simpleNumbers, setSimpleNumbers] = useState<string>("");
+
+    const form1 = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             number: 0
         }
     })
 
-    // Теперь мы уверены, что data.number это число
-    const onSubmit = handleSubmit((data) => {
-        setOnOrder(true)
-        setNumber(data.number)
+    const form2 = useForm<FormValues>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            number: 0
+        }
     })
 
+    const number1 = form1.watch('number');
+    const number2 = form2.watch('number');
+
+    useEffect(() => {
+        setSimpleNumbers(getTaskThird(number1, number2));
+    }, [number1, number2]);
+
     return (
-        <VStack>
+        <VStack width="100%">
             <Text fontWeight="medium">
                 Задача 3
             </Text>
             <Text color="red.700">{PRIME_NUMBERS_TASK}</Text>
             <Text color="green.600">Решение</Text>
+            <HStack border="1px solid green" borderRadius="md" shadow="md" p={4} alignItems="start">
+                <form>
+                    <Field
+                        invalid={!!form1.formState.errors.number}
+                        errorText={form1.formState.errors.number?.message}
+                    >
+                        <Controller
+                            name="number"
+                            control={form1.control}
+                            render={({field}) => (
+                                <NumberInputRoot
+                                    disabled={field.disabled}
+                                    name={field.name}
+                                    min={0}
+                                    onValueChange={({value}) => {
+                                        field.onChange(Number(value))
+                                    }}
+                                >
+                                    <NumberInputField onBlur={field.onBlur}/>
+                                </NumberInputRoot>
+                            )}
+                        />
+                    </Field>
+                </form>
 
-            <form onSubmit={onSubmit}>
-                {!onOrder &&
-                    <VStack>
-                        <Field
-                            label={"Сколько компьютеров вам нужно?"}
-                            invalid={!!errors.number}
-                            errorText={errors.number?.message}
-                        >
-                            <Controller
-                                name="number"
-                                control={control}
-                                render={({field}) => (
-                                    <NumberInputRoot
-                                        disabled={field.disabled}
-                                        name={field.name}
-                                        onValueChange={({value}) => {
-                                            // Преобразуем значение в число
-                                            field.onChange(Number(value))
-                                        }}
-                                    >
-                                        <NumberInputField onBlur={field.onBlur}/>
-                                    </NumberInputRoot>
-                                )}
-                            />
-                        </Field>
-                        <Button size="sm" type="submit">
-                            Заказать
-                        </Button>
-                    </VStack>}
+                <Box
+                    border="1px solid green"
+                    borderRadius="md"
+                    py={2}
+                    px={4}
+                    shadow="md"
+                >
+                    <Text color="green.600"
+                          width="300px"
+                          whiteSpace="pre-wrap"
+                          lineClamp="7">
+                        {simpleNumbers}</Text>
 
-                {onOrder &&
-                    <VStack>
-                        <Text> {number >0 ? "На складе для вас есть": number===0? "Нет смысла заказывать ": "Вы должны привезти нам на склад "} {getTaskFirst(number)}</Text>
-                        <Button size="sm" type="submit"  onClick={() => setOnOrder(false)}> Новый заказ </Button>
-                    </VStack>
-                }
-            </form>
+                </Box>
+
+                <form>
+                    <Field
+                        invalid={!!form2.formState.errors.number}
+                        errorText={form2.formState.errors.number?.message}
+                    >
+                        <Controller
+                            name="number"
+                            control={form2.control}
+                            render={({field}) => (
+                                <NumberInputRoot
+                                    disabled={field.disabled}
+                                    name={field.name}
+                                    onValueChange={({value}) => {
+                                        field.onChange(Number(value))
+                                    }}
+                                >
+                                    <NumberInputField onBlur={field.onBlur}/>
+                                </NumberInputRoot>
+                            )}
+                        />
+                    </Field>
+                </form>
+            </HStack>
+            <ShowCode fun={getTaskThird}/>
         </VStack>
+
     );
 };
 

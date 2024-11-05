@@ -1,16 +1,11 @@
 import {Button, Code, VStack} from "@chakra-ui/react";
 import { useState } from "react";
 
-type ValidParamType = string | number | boolean | Record<string, unknown> | unknown[];
-type ValidReturnType = string | number | boolean | void | Record<string, unknown> | unknown[];
-
-interface ShowCodeProps<P extends ValidParamType, R extends ValidReturnType> {
-    fun: (param: P) => R;
+interface ShowCodeProps {
+    fun: Function;
 }
 
-const ShowCode = <P extends ValidParamType, R extends ValidReturnType>({
-                                                                           fun
-                                                                       }: ShowCodeProps<P, R>): JSX.Element => {
+const ShowCode = ({ fun }: ShowCodeProps): JSX.Element => {
     const [showCode, setShowCode] = useState(false);
 
     const formatCode = (code: string): string => {
@@ -29,12 +24,12 @@ const ShowCode = <P extends ValidParamType, R extends ValidReturnType>({
             .trim();
     };
 
-    const getFormattedCode = (fn: (param: P) => R): string => {
+    const getFormattedCode = (fn: Function): string => {
         return formatCode(fn.toString());
     };
 
     return (
-        <VStack p={3}>
+        <VStack p={3} width="100%">
             <Button
                 variant="outline"
                 onClick={() => setShowCode(!showCode)}

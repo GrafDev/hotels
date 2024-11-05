@@ -12,20 +12,6 @@ import {BRAINTASK} from "./utils/text-constant.ts";
 
 function App() {
     const [taskNumber, setTaskNumber] = useState(1)
-
-    const buttonCoddingTaskList = [
-        "Задача на кодинг 1",
-        "Задача на кодинг 2",
-        "Задача на кодинг 3",
-        "Задача на кодинг 4",
-    ]
-    const buttonBrainTaskList = [
-        "Задача на сообразительность 1",
-        "Задача на сообразительность 2",
-        "Задача на сообразительность 3",
-        "Задача на сообразительность 4"
-    ]
-
     const nodeList = [
         <TaskFirst/>,
         <TaskSecond/>,
@@ -40,33 +26,33 @@ function App() {
     return (
         <div>
 
-            <VStack>
+            <VStack width="100%">
                 <HStack>
                     <Text fontSize="4xl">Тестовое задание Hotels</Text>
                     <ColorModeButton/>
                 </HStack>
-                <HStack>
+                <HStack mb={3}>
                     <VStack>
-                        {buttonCoddingTaskList.map((item, index) => (
-                            <Button key={index} onClick={() => setTaskNumber(index + 1)}>
-                                {item}
-                            </Button>
-                        ))}
+                        <Text fontSize="lg">Выбери номер задачи</Text>
+                        <HStack>
+                            {nodeList.map((_, index) => (
+                                <Button
+                                    variant="surface"
+                                    key={index}
+                                    onClick={() => setTaskNumber(index + 1)}
+                                    _hover={{ transform: 'scale(1.05)'}}
+                                    border={index>3?"1px solid blue":"1px solid red"}
+                                >
+                                    {`№${index>3?index-3:index+1}`}
+                                </Button>
+                            ))}
+                        </HStack>
                     </VStack>
-                    <VStack>
-                        {buttonBrainTaskList.map((item, index) => (
-                            <Button key={index} onClick={() => setTaskNumber(index + 5)}>
-                                {item}
-                            </Button>
-                        ))}
-                    </VStack>
-
                 </HStack>
-                <Box bg="bg" shadow="md" borderRadius="md" m={4} p={[4]} maxW="60%">
+                <Text fontSize="md">{taskNumber>4?"Задача на сообразительность":"Задача на кодирование"}</Text>
+                <Box bg="bg" shadow="md"  borderRadius="md" m={[0, 4]} p={[4]} >
                     {nodeList[taskNumber - 1]}
                 </Box>
-
-
             </VStack>
         </div>
     )

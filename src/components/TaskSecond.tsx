@@ -56,7 +56,7 @@ const TaskSecond = () => {
     }
 
     return (
-        <VStack>
+        <VStack >
             <Text fontWeight="medium">
                 Задача 2
             </Text>
@@ -65,7 +65,7 @@ const TaskSecond = () => {
 
             <form onSubmit={onSubmit}>
                 {!onOrder &&
-                    <VStack>
+                    <VStack border="1px solid green"  borderRadius="md" shadow="md" p={4}>
                         <Field
                             label={"Впишите через запятую целые положительные числа"}
                             invalid={!!errors.numbers}
@@ -88,7 +88,7 @@ const TaskSecond = () => {
                     </VStack>}
 
                 {onOrder &&
-                    <VStack>
+                    <VStack border="1px solid green"  borderRadius="md" shadow="md" p={4}>
                         <Text>
                             {numbers ? `У массива [${numbers}] общие делители: [${getTaskSecond(numbers)}]` : "Введите числа"}
                         </Text>
