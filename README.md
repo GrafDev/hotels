@@ -1,4 +1,8 @@
 # Тестовое задание для Hotels
+*Был сделан сайт с выполнеными заданиями. [Сайт](https://grafdev.github.io/hotels/)*
+
+![image](https://github.com/user-attachments/assets/4cd16c1f-c26b-422f-8c45-56c10837e515)
+
 
 ## Оглавление
 #### Задачи на сообразительнось
